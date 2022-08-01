@@ -1,5 +1,15 @@
 .App {
   text-align: center;
+  color: white;
+}
+
+a {
+  color: blue;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .App-header {
