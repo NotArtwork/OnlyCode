@@ -10,10 +10,9 @@ const LogInForm = ({ toggleLogin }) => {
             <h3>Log In</h3>
             <input type='text' placeholder='Enter Username'></input>
             <input type='text' placeholder='Enter Password'></input>
-            <button>Log In!</button>
-            <button onClick={toggleLogin}>Sign up!</button>
+            <button>Log in</button>
         </form>
-          <p>Don't have an account? <a onCick={toggleLogin}>Sign up here</a></p>
+          <p>Don't have an account? <a onClick={toggleLogin}>Sign up here</a></p>
     </div>
   )
 }
