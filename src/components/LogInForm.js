@@ -9,7 +9,7 @@ const LogInForm = ({ toggleLogin }) => {
         <form id='log-in'>
             <h3>Log In</h3>
             <input type='text' placeholder='Enter Username'></input>
-            <input type='text' placeholder='Enter Password'></input>
+            <input type='password' placeholder='Enter Password'></input>
             <button>Log in</button>
         </form>
           <p>Don't have an account? <a onClick={toggleLogin}>Sign up here</a></p>
