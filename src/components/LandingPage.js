@@ -3,7 +3,7 @@ import SignUpForm from './SignUpForm'
 import { useState } from 'react'
 // import Background from './public/Background.mp4'
 
-const LandingPage = () => {
+const LandingPage = ({ users }) => {
     const [signUp, setSignUp] = useState(true)
 
     const toggleLogin = () => {
@@ -18,7 +18,7 @@ const LandingPage = () => {
             </video>
             {
                 signUp ?
-                    <LogInForm toggleLogin={toggleLogin} />
+                    <LogInForm toggleLogin={toggleLogin} users={users} />
                     :
                     <SignUpForm toggleLogin={toggleLogin} />
             }

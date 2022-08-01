@@ -13,8 +13,7 @@ const SignUpForm = ({toggleLogin}) => {
 
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        if (loginInfo.email.includes('@' && '.com')) {
+        if (loginInfo.email.includes('@' && '.com') && loginInfo.password.length >= 6 )  {
             const postUserData = async (info) => {
                 let req =  await fetch('http://localhost:3001/users', {
                     method:'POST',
@@ -26,8 +25,12 @@ const SignUpForm = ({toggleLogin}) => {
             }
             postUserData(loginInfo)
             alert('You signed up!')
+        } else if (loginInfo.password < 6) {
+            e.preventDefault()
+            alert('Invalid Password')
         } else {
-            alert('Invalid Email Address')
+            e.preventDefault()
+            alert('Invalid Email Address or Password')
         }
 
     }
@@ -46,6 +49,7 @@ const SignUpForm = ({toggleLogin}) => {
                     <button>Sign up</button>
             </form>
             <p>Already have an account? <a onClick={toggleLogin}>Log in here</a></p>
+            <p>Password needs to have <strong>at least</strong> 6 characters</p>
 
         </div>
     )

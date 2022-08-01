@@ -8,6 +8,8 @@ function App() {
 
   const [users, setUsers] = useState([])
   const [code, setCode] = useState([])
+  const [loginInfo, setLoginInfo] = useState([])
+
 
   useEffect(() => {
 
@@ -26,10 +28,11 @@ function App() {
     fetchUsers();
   },[])
 
+
   console.log(code, users)
   return (
     <div className="App">
-      <LandingPage />
+      <LandingPage users={users} />
     </div>
   );
 }
