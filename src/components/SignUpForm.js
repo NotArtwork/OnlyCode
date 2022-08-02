@@ -15,7 +15,7 @@ const SignUpForm = ({toggleLogin}) => {
     const handleSubmit = (e) => {
         if (loginInfo.email.includes('@' && '.com') && loginInfo.password.length >= 6 )  {
             const postUserData = async (info) => {
-                let req =  await fetch('http://localhost:3001/users', {
+                let req =  await fetch('http://localhost:3001/users/', {
                     method:'POST',
                     Accept: 'application/json',
                     headers: {'Content-Type': 'application/json'},

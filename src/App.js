@@ -8,7 +8,6 @@ function App() {
 
   const [users, setUsers] = useState([])
   const [code, setCode] = useState([])
-  const [loginInfo, setLoginInfo] = useState([])
 
 
   useEffect(() => {
@@ -18,7 +17,7 @@ function App() {
       let res = await req.json()
       setUsers(res)
     }
-
+    
     const fetchCode = async () => {
       let req = await fetch('http://localhost:3001/code')
       let res = await req.json()
@@ -28,11 +27,10 @@ function App() {
     fetchUsers();
   },[])
 
-
-  console.log(code, users)
+  console.log(users.users)
   return (
     <div className="App">
-      <LandingPage users={users} />
+      <LandingPage users={users.users} />
     </div>
   );
 }

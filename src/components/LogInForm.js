@@ -3,9 +3,10 @@ import { useState } from 'react'
 
 
 
-const LogInForm = ({ toggleLogin ,users }) => {
+const LogInForm = ({ toggleLogin , users }) => {
 
   const [loginInfo, setLoginInfo] = useState([])
+
 
   const handleInput = (name, value) => {
     setLoginInfo({
@@ -16,8 +17,15 @@ const LogInForm = ({ toggleLogin ,users }) => {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    if (loginInfo.name == users.name && loginInfo.password == users.password) {
-      alert('You have logged in!')
+    console.log(loginInfo)
+
+    const loginAttempt = (info) => {
+      fetch('http://localhost:3001/users', {
+        method: 'POST',
+        Accept: 'application/json',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(info)
+      })
     }
 
   }
@@ -34,6 +42,8 @@ const LogInForm = ({ toggleLogin ,users }) => {
     </div>
   )
 }
+
+
 
 export default LogInForm
 
