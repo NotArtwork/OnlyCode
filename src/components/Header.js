@@ -2,9 +2,7 @@
 
 
 const Header = () => {
-  return (
-    <div></div>
-  )
+  return 
 }
 
 export default Header

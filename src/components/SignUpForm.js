@@ -13,6 +13,7 @@ const SignUpForm = ({toggleLogin}) => {
 
 
     const handleSubmit = (e) => {
+        e.preventDefault();
         if (loginInfo.email.includes('@' && '.com') && loginInfo.password.length >= 6 )  {
             const postUserData = async (info) => {
                 let req =  await fetch('http://localhost:3001/users/', {
@@ -22,6 +23,7 @@ const SignUpForm = ({toggleLogin}) => {
                     body: JSON.stringify(info)
                 })
                 let res = req.json()
+                
             }
             postUserData(loginInfo)
             alert('You signed up!')
@@ -46,10 +48,13 @@ const SignUpForm = ({toggleLogin}) => {
                 <input type='text' placeholder='Enter Email' name='email' onChange={(e) => handleInput(e.target.name, e.target.value)}/>
                     <label>Password:</label>
                 <input type='password' placeholder='Enter Password' name='password' onChange={(e) => handleInput(e.target.name, e.target.value)} />
+                    <label>Initial Deposit</label>
+                <input type='number' placeholder='Enter Deposit' name='cash' onChange={(e) => handleInput(e.target.name, e.target.value)} />
                     <button>Sign up</button>
             </form>
             <p>Already have an account? <a onClick={toggleLogin}>Log in here</a></p>
             <p>Password needs to have <strong>at least</strong> 6 characters</p>
+            <p>Initial deposit can be 0 if you don't wish to deposit</p>
 
         </div>
     )

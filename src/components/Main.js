@@ -1,11 +1,14 @@
 import React from 'react'
+import CodeEditor from './CodeEditor'
 
-const MainPage = () => {
+const Main = () => {
   return (
     <div>
-        
-   </div>
+      <CodeEditor />
+    </div>
   )
+ 
+  
 }
 
-export default MainPage
+export default Main
