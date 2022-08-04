@@ -18,30 +18,28 @@ function App() {
     const fetchUsers = async () => {
       let req = await fetch('http://localhost:3001/users')
       let res = await req.json()
-      console.log(res)
       setUsers(res)
     }
     
     const fetchCode = async () => {
       let req = await fetch('http://localhost:3001/code')
       let res = await req.json()
-      console.log(res)
       setCode(res)
     }
     fetchCode();
     fetchUsers();
   },[])
 
-  console.log(users)
+  console.log(users.name, code.code)
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route exact path="/main" >
-            <Main />
+            <Main  code={code.code} />
           </Route>
           <Route exact path="/" >
-            <LandingPage users={users.users} />
+            <LandingPage users={users.name} />
           </Route>
         </Switch>
       </Router>
