@@ -1,11 +1,17 @@
 
 
-const Code = ({ name, code, bounty}) => {
+const Code = ({ name, code, bounty, setCurrentCode, currentCode}) => {
+
+
+    const handleClick = () => {
+        setCurrentCode(currentCode => code)
+    }
+
+
     return(
-        <li>
-            <h3>{name}</h3>
-            <h4 style={{textDecoration: 'underline'}}>Code</h4>
-            <p> {code}</p>
+        <li onClick={handleClick} className='code-item'>
+            <h3 style={{textDecoration: 'underline'}}>{name}</h3>
+            <p className="text"> {code}</p>
             <p>Cash Value: {bounty}</p>
         </li>
     )

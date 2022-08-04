@@ -7,10 +7,10 @@ import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/ext-language_tools";
 
 
-const CodeEditor = ( {code} ) => {
+const CodeEditor = ( {code, currentCode, setCurrentCode} ) => {
 
 
-    const [currentCode, setCurrentCode] = useState('')
+    // const [currentCode, setCurrentCode] = useState('')
 
     const [codeInfo, setCodeInfo] = useState({})
 
